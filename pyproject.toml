@@ -5,8 +5,8 @@ description = "Python project template"
 authors = [
     {name = "Cliff Wulfman", email = "cwulfman@princeton.edu"},
 ]
-dependencies = []
-requires-python = ">=3.12"
+dependencies = ["pillow>=11.1.0", "pytesseract>=0.3.13", "lxml>=5.3.1"]
+requires-python = ">=3.9,<3.13"
 readme = "README.md"
 license = {text = "MIT"}
 
@@ -14,6 +14,9 @@ license = {text = "MIT"}
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
+
+[tool.pyright]
+include = ["src"]
 
 [tool.pdm]
 distribution = true
@@ -58,4 +61,5 @@ dev = [
     "pytest-mock>=3.14.0",
     "ruff>=0.11.3",
     "mypy>=1.15.0",
+    "pytest-datadir>=1.6.1",
 ]
