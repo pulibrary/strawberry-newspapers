@@ -1,5 +1,6 @@
 from pathlib import Path
 from PIL import Image
+from lxml import etree
 import pytesseract
 
 
@@ -25,7 +26,7 @@ class Page():
     @property
     def xml(self) -> str:
         if self._xml is None:
-            self._xml = pytesseract.image_to_alto_xml(self.image)
+            self._xml = etree.fromstring(pytesseract.image_to_alto_xml(self.image))
         return self._xml
 
     

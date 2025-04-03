@@ -1,6 +1,7 @@
 from pathlib import Path
 from newspaper.models.pages import Page
 import PIL
+from lxml import etree
 
 def test_page_image(shared_datadir):
     sample_file = shared_datadir / "test_image.jpg"
@@ -21,6 +22,6 @@ def test_page_xml(shared_datadir):
     sample_file = shared_datadir / "test_image.jpg"
     page:Page = Page(sample_file)
 
-    assert page.xml == "foo"
+    assert type(page.xml) == etree._Element
 
 
